@@ -233,17 +233,17 @@ function drawExit(ctx, exit, open, time) {
   const pulse = open ? 0.6 + Math.sin(time * 4) * 0.25 : 0.25;
   // a halo behind the door so it never drowns in the dark — red while
   // locked, green once every artifact is stolen
-  const halo = ctx.createRadialGradient(c.x, c.y, 4, c.x, c.y, open ? 95 : 55);
+  const halo = ctx.createRadialGradient(c.x, c.y, 4, c.x, c.y, open ? 95 : 70);
   if (open) {
     halo.addColorStop(0, 'rgba(57, 217, 138, 0.5)');
     halo.addColorStop(1, 'rgba(57, 217, 138, 0)');
   } else {
-    halo.addColorStop(0, 'rgba(255, 70, 70, 0.4)');
+    halo.addColorStop(0, 'rgba(255, 70, 70, 0.45)');
     halo.addColorStop(1, 'rgba(255, 70, 70, 0)');
   }
   ctx.fillStyle = halo;
   ctx.beginPath();
-  ctx.arc(c.x, c.y, open ? 95 : 55, 0, Math.PI * 2);
+  ctx.arc(c.x, c.y, open ? 95 : 70, 0, Math.PI * 2);
   ctx.fill();
   ctx.fillStyle = open ? COLORS.exitOpen : '#8a3d3d';
   ctx.globalAlpha = 0.95;
@@ -254,7 +254,7 @@ function drawExit(ctx, exit, open, time) {
   ctx.strokeRect(c.x - 16, c.y - 16, 32, 32);
   ctx.lineWidth = 1;
   ctx.fillStyle = open ? '#eafff3' : '#ffd2d2';
-  ctx.font = 'bold 13px monospace';
+  ctx.font = 'bold 14px monospace';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillText(open ? 'EXIT' : 'LOCK', c.x, c.y + 1);
@@ -307,7 +307,7 @@ function drawCones(ctx, guards, world) {
     ctx.fill();
     // cone rim — the hard edge that reads at thumbnail size
     ctx.strokeStyle = level === 2 ? 'rgba(255, 80, 80, 0.85)'
-      : level === 1 ? 'rgba(255, 180, 70, 0.75)' : 'rgba(255, 230, 140, 0.6)';
+      : level === 1 ? 'rgba(255, 180, 70, 0.75)' : 'rgba(255, 230, 140, 0.7)';
     ctx.lineWidth = 2;
     ctx.stroke();
     ctx.lineWidth = 1;
