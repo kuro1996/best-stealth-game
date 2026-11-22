@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LUMEN THIEF — Steal the Light</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #05070f;
+    height: 100%;
+    overflow: hidden;
+    font-family: monospace, ui-monospace, monospace;
+  }
+  #wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: radial-gradient(ellipse at center, #0b1020 0%, #05070f 70%);
+  }
+  canvas {
+    width: min(1280px, 100vw);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    image-rendering: auto;
+    box-shadow: 0 0 60px rgba(80, 100, 255, 0.15), 0 0 0 1px #1c2440;
+    background: #0a0e1a;
+    cursor: crosshair;
+  }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1280" height="720"></canvas>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
